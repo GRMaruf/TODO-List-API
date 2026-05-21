@@ -37,9 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'todo',
-    'api',
-    'rest_framework'
+    'todo', # my app & models
+    'api', # my api
+    'rest_framework',
+    'drf_spectacular', # for swager implementation
 ]
 
 MIDDLEWARE = [
@@ -123,5 +124,11 @@ STATIC_URL = 'static/'
 REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": [
         "rest_framework.permissions.AllowAny",
-    ]
+    ],
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'My API',
+    'DESCRIPTION': 'Simple Django REST API',
+    'VERSION': '1.0.0',
 }
